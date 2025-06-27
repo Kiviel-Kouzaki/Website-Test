@@ -26,8 +26,8 @@
         h1 {
             text-align: center;
             color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-size: 2.2em;
             font-weight: bold;
             background: linear-gradient(45deg, #667eea, #764ba2);
             -webkit-background-clip: text;
@@ -37,44 +37,48 @@
         
         .description {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border-left: 5px solid #667eea;
         }
         
         .description h3 {
             color: #2c3e50;
             margin-top: 0;
+            font-size: 1.2em;
         }
         
         .description p {
             color: #34495e;
-            line-height: 1.6;
-            margin-bottom: 10px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+            font-size: 0.95em;
         }
         
         .legend {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
         }
         
         .legend-item {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 8px 12px;
             border-radius: 10px;
             background: rgba(255, 255, 255, 0.8);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
         }
         
         .legend-color {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 8px;
+            flex-shrink: 0;
         }
         
         .color-start { background-color: #e1f5fe; }
@@ -88,30 +92,19 @@
             padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             overflow: auto;
+            width: 100%;
         }
         
-        .controls {
-            text-align: center;
-            margin-bottom: 20px;
+        /* Ensure mermaid diagram is fully visible and accessible */
+        .mermaid {
+            width: 100%;
+            height: auto;
+            display: block;
         }
         
-        .btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            cursor: pointer;
-            margin: 0 10px;
-            font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        .mermaid svg {
+            max-width: 100%;
+            height: auto;
         }
         
         @media (max-width: 768px) {
@@ -121,11 +114,43 @@
             }
             
             h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
             
             .legend {
                 grid-template-columns: 1fr;
+            }
+            
+            .description {
+                padding: 12px;
+            }
+            
+            .description h3 {
+                font-size: 1.1em;
+            }
+            
+            .description p {
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 12px;
+                margin: 5px;
+            }
+            
+            h1 {
+                font-size: 1.6em;
+                margin-bottom: 15px;
+            }
+            
+            #mermaid-diagram {
+                padding: 15px;
             }
         }
     </style>
@@ -135,11 +160,11 @@
         <h1>🚀 Graf Logic Pembelajaran Crypto</h1>
         
         <div class="description">
-            <h3>📋 Struktur Pembelajaran</h3>
-            <p><strong>Fase Motivasi:</strong> Dimulai dengan filosofi dasar "Start with Why?" dan pemahaman tentang kebebasan finansial</p>
+            <h3> Kurikulum Crypto Alliance</h3>
+            <p><strong>Fase Awal:</strong> Dimulai dengan filosofi dasar "Start with Why?" dan pemahaman tentang financial freedom</p>
             <p><strong>Fase Persiapan:</strong> Latihan soal dan pemahaman keuntungan masuk lebih awal di crypto</p>
-            <p><strong>Fase Pembelajaran:</strong> Empat area riset yang berjalan paralel untuk membangun fondasi yang kuat</p>
-            <p><strong>Fase Spesialisasi:</strong> Pemilihan jalur karir antara Trader atau Investor</p>
+            <p><strong>Fase Pembelajaran:</strong> Empat wilayah yang berjalan paralel untuk membangun fondasi pengetahuan dan praktikal</p>
+            <p><strong>Spesialisasi:</strong> Memilih minat antara Trader atau Investor</p>
         </div>
         
         <div class="legend">
@@ -161,12 +186,6 @@
             </div>
         </div>
         
-        <div class="controls">
-            <button class="btn" onclick="zoomIn()">🔍 Zoom In</button>
-            <button class="btn" onclick="zoomOut()">🔍 Zoom Out</button>
-            <button class="btn" onclick="resetZoom()">↺ Reset</button>
-        </div>
-        
         <div id="mermaid-diagram">
             <div class="mermaid">
                 flowchart TD
@@ -176,7 +195,7 @@
                     D --> E["⚡ Menang karena masuk lebih awal:<br/>keuntungan waktu dalam Crypto"]
                     E --> F["🚪 Darimana harus memulai?"]
                     
-                    F --> G["🎁 Praktik Airdrop &<br/>Otomatisasi Riset"]
+                    F --> G["🎁 Praktek cuan melalui Airdrop &<br/>Otomatisasi Riset"]
                     F --> H["📊 Pendalaman Narrative Research"]
                     F --> I["🔍 Pendalaman Fundamental Research"]
                     F --> J["📈 Pendalaman Technical Research"]
@@ -217,28 +236,6 @@
                 padding: 20
             }
         });
-
-        let currentZoom = 1;
-        const diagram = document.getElementById('mermaid-diagram');
-
-        function zoomIn() {
-            currentZoom += 0.1;
-            diagram.style.transform = `scale(${currentZoom})`;
-            diagram.style.transformOrigin = 'center';
-        }
-
-        function zoomOut() {
-            if (currentZoom > 0.5) {
-                currentZoom -= 0.1;
-                diagram.style.transform = `scale(${currentZoom})`;
-                diagram.style.transformOrigin = 'center';
-            }
-        }
-
-        function resetZoom() {
-            currentZoom = 1;
-            diagram.style.transform = 'scale(1)';
-        }
 
         // Add smooth scrolling and animations
         document.addEventListener('DOMContentLoaded', function() {
