@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graf Logic Pembelajaran Crypto</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .description {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .description h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .description p {
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .color-start { background-color: #e1f5fe; }
+        .color-decision { background-color: #fff3e0; }
+        .color-trader { background-color: #ffebee; }
+        .color-investor { background-color: #e8f5e8; }
+        
+        #mermaid-diagram {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: auto;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 0 10px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .legend {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Graf Logic Pembelajaran Crypto</h1>
+        
+        <div class="description">
+            <h3>📋 Struktur Pembelajaran</h3>
+            <p><strong>Fase Motivasi:</strong> Dimulai dengan filosofi dasar "Start with Why?" dan pemahaman tentang kebebasan finansial</p>
+            <p><strong>Fase Persiapan:</strong> Latihan soal dan pemahaman keuntungan masuk lebih awal di crypto</p>
+            <p><strong>Fase Pembelajaran:</strong> Empat area riset yang berjalan paralel untuk membangun fondasi yang kuat</p>
+            <p><strong>Fase Spesialisasi:</strong> Pemilihan jalur karir antara Trader atau Investor</p>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-start"></div>
+                <span><strong>Titik Awal</strong> - Motivasi & Filosofi</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-decision"></div>
+                <span><strong>Titik Keputusan</strong> - Pilihan Jalur</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-trader"></div>
+                <span><strong>Jalur Trader</strong> - Fokus Trading</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color color-investor"></div>
+                <span><strong>Jalur Investor</strong> - Fokus Investasi</span>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" onclick="zoomIn()">🔍 Zoom In</button>
+            <button class="btn" onclick="zoomOut()">🔍 Zoom Out</button>
+            <button class="btn" onclick="resetZoom()">↺ Reset</button>
+        </div>
+        
+        <div id="mermaid-diagram">
+            <div class="mermaid">
+                flowchart TD
+                    A["🎯 Start with Why?"] --> B["💪 Kebebasan tidak dapat dicicil"]
+                    B --> C["⏰ Kamu masih belum terlambat,<br/>kamu hanya harus mengerti"]
+                    C --> D["📝 Soal-soal pelatihan"]
+                    D --> E["⚡ Menang karena masuk lebih awal:<br/>keuntungan waktu dalam Crypto"]
+                    E --> F["🚪 Darimana harus memulai?"]
+                    
+                    F --> G["🎁 Praktik Airdrop &<br/>Otomatisasi Riset"]
+                    F --> H["📊 Pendalaman Narrative Research"]
+                    F --> I["🔍 Pendalaman Fundamental Research"]
+                    F --> J["📈 Pendalaman Technical Research"]
+                    
+                    G --> K{"🤔 Mau jadi Trader<br/>atau Investor?"}
+                    H --> K
+                    I --> K
+                    J --> K
+                    
+                    K -->|Pilih Trader| L["📱 Trader<br/>— Masih belum dikembangkan<br/>kurikulumnya"]
+                    K -->|Pilih Investor| M["💼 Investor<br/>— Masih belum dikembangkan<br/>kurikulumnya"]
+                    
+                    style A fill:#e1f5fe,stroke:#0277bd,stroke-width:3px
+                    style K fill:#fff3e0,stroke:#f57c00,stroke-width:3px
+                    style L fill:#ffebee,stroke:#d32f2f,stroke-width:2px
+                    style M fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+                    style B fill:#f3e5f5,stroke:#7b1fa2
+                    style C fill:#f3e5f5,stroke:#7b1fa2
+                    style D fill:#e8eaf6,stroke:#3f51b5
+                    style E fill:#e8eaf6,stroke:#3f51b5
+                    style F fill:#e0f2f1,stroke:#00695c
+                    style G fill:#fff8e1,stroke:#ff8f00
+                    style H fill:#fff8e1,stroke:#ff8f00
+                    style I fill:#fff8e1,stroke:#ff8f00
+                    style J fill:#fff8e1,stroke:#ff8f00
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            }
+        });
+
+        let currentZoom = 1;
+        const diagram = document.getElementById('mermaid-diagram');
+
+        function zoomIn() {
+            currentZoom += 0.1;
+            diagram.style.transform = `scale(${currentZoom})`;
+            diagram.style.transformOrigin = 'center';
+        }
+
+        function zoomOut() {
+            if (currentZoom > 0.5) {
+                currentZoom -= 0.1;
+                diagram.style.transform = `scale(${currentZoom})`;
+                diagram.style.transformOrigin = 'center';
+            }
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            diagram.style.transform = 'scale(1)';
+        }
+
+        // Add smooth scrolling and animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.8s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
